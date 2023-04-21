@@ -41,6 +41,7 @@ func main() {
 		jsonResponse, _ := json.Marshal(map[string]string{"message": res.Message, "token": res.Token, "refresh_token": res.TokenRefresh})
 		w.Write(jsonResponse)
 		log.Println("Sending request for /login")
+		fmt.Println(res)
 	}).Methods("POST")
 
 	r.HandleFunc("/RefreshToken", func(w http.ResponseWriter, r *http.Request) {
